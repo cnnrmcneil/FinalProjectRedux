@@ -16,21 +16,34 @@
   border-style: dotted;
   padding: 10px;
   margin: 20px;
-  overflow: auto;
+  height: 75vh;
   max-height: 80vh;
   margin-right: auto;
   justify-self: flex-start;
+}
+
+.allCollectionCard {
+  width: 1000px;
+  border: 20px;
+  border-style: dotted;
+  padding: 10px;
+  overflow: auto;
+  max-height: 50vh;
+  height: 50vh;
+  width: 25vw !important;
+  margin-right: 0;
 }
 
 .rightBox {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 200px;
+  width: 60vw;
   border: 1px;
   border-style: dotted;
   padding: 10px;
   margin: 20px;
+  height: 75vh;
 }
 
 .twoBox {
@@ -42,18 +55,17 @@
   max-height: 80vh;
   margin: 20px;
 }
-.activeCollectionCard {
-  width: 200px;
-  border: 1px;
-  border-style: dotted;
-  padding: 10px;
-}
 
 .allCollectionCard {
   width: 200px;
   border: 1px;
   border-style: dotted;
   padding: 10px;
+}
+.activeCollectionCard {
+  align-self: flex-start;
+  height: 50vh;
+  overflow: auto;
 }
 
 .userCard {

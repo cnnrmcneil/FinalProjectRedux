@@ -6,6 +6,7 @@ import {
   updateActiveCollection,
   updateCollections,
 } from "../redux/actionCreator/collectionActions";
+import "../App.css";
 
 function AllCollectionCard(props) {
   const [count, setCount] = React.useState(0);
@@ -58,7 +59,7 @@ function AllCollectionCard(props) {
   }
 
   return (
-    <div>
+    <div className="allCollectionCard">
       <h2>Collections: </h2>
       {console.log(
         "The Map function should be running",

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 function UserCard(props) {
   return (
     <div>
-      <h1>{props.userInfo.username} page</h1>
+      <h1>{props.userInfo.username}'s page</h1>
     </div>
   );
 }

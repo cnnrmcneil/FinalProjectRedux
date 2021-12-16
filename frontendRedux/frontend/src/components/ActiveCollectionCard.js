@@ -9,11 +9,11 @@ function ActiveCollectionCard(props) {
   }
 
   return (
-    <div>
+    <div className="activeCollectionCard">
       {/* {console.log("rerendering active collection card")} */}
       {/* {console.log("this is active collection", props.collections)} */}
       <h2>{props.collections.activeCollection?.title}</h2>
-      <p>{props.collections.activeCollection?.creator}</p>
+      <p>Created by: {props.collections.activeCollection?.creator}</p>
       <ol>
         {props.collections.activeCollection ? (
           props.collections.activeCollection.links?.map((link, index) => {
