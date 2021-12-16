@@ -1,0 +1,75 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  border-bottom: 1px;
+  border-bottom-style: dotted;
+  padding: 10px;
+}
+.leftBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 30vw;
+  border: 1px;
+  border-style: dotted;
+  padding: 10px;
+  margin: 20px;
+  overflow: auto;
+  max-height: 80vh;
+  margin-right: auto;
+  justify-self: flex-start;
+}
+
+.rightBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 200px;
+  border: 1px;
+  border-style: dotted;
+  padding: 10px;
+  margin: 20px;
+}
+
+.twoBox {
+  display: flex;
+  justify-content: center;
+  border: 1px;
+  border-style: dotted;
+  padding: 10px;
+  max-height: 80vh;
+  margin: 20px;
+}
+.activeCollectionCard {
+  width: 200px;
+  border: 1px;
+  border-style: dotted;
+  padding: 10px;
+}
+
+.allCollectionCard {
+  width: 200px;
+  border: 1px;
+  border-style: dotted;
+  padding: 10px;
+}
+
+.userCard {
+  width: 200px;
+  border: 1px;
+  border-style: dotted;
+  padding: 10px;
+}
+
+.headerItems {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.headerItems li {
+  padding-left: 80px;
+  padding-right: 80px;
+  list-style: none;
+}
