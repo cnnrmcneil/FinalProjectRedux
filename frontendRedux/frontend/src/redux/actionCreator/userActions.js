@@ -26,3 +26,10 @@ export const updateUserCollections = (e) => {
     payload: e,
   };
 };
+export const updateOtherUserID = (e) => {
+  console.log("updating otherUserID: ", e);
+  return {
+    type: "UPDATE_OTHERUSERID",
+    payload: e,
+  };
+};

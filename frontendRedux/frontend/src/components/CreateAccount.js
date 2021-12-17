@@ -13,7 +13,7 @@ function CreateAccount(props) {
 
   useEffect(() => {
     axios
-      .post("http://localhost:4000/users/sign-up", {
+      .post("https://cnnrmcnl-youtube.herokuapp.com/users/sign-up", {
         username: props.userInfo2.username,
         password: props.userInfo2.password,
       })
@@ -30,7 +30,7 @@ function CreateAccount(props) {
   }, [isSending]);
 
   return (
-    <div>
+    <div className="login">
       <form id="username">
         <label for="username">Username</label>
         <input
@@ -41,7 +41,7 @@ function CreateAccount(props) {
         ></input>
       </form>
       <form id="password">
-        <label for="password">Password</label>
+        <label for="password">Password </label>
         <input
           type="text"
           id="password"
@@ -50,11 +50,12 @@ function CreateAccount(props) {
         ></input>
       </form>
       <button
+        className="buttonCollection"
         onClick={() => {
           setIsSending(true);
         }}
       >
-        SignUp
+        Sign Up
       </button>
     </div>
   );

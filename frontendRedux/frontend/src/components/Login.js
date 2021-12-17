@@ -30,8 +30,10 @@ function Login(props) {
 
   function refresh() {
     axios
-      .post("http://localhost:4000/users/login", {
+      .post("https://cnnrmcnl-youtube.herokuapp.com/users/login", {
+        // username: "username",
         username: props.userInfo.username,
+        // password: "password",
         password: props.userInfo.password,
       })
       .then((results) => {
@@ -45,7 +47,7 @@ function Login(props) {
   }
 
   return (
-    <div>
+    <div className="login">
       <form id="username">
         <label for="username">Username</label>
         <input
@@ -56,7 +58,7 @@ function Login(props) {
         ></input>
       </form>
       <form id="password">
-        <label for="password">Password</label>
+        <label for="password">Password </label>
         <input
           type="text"
           id="password"
@@ -65,6 +67,7 @@ function Login(props) {
         ></input>
       </form>
       <button
+        className="buttonCollection"
         onClick={() => {
           refresh();
         }}

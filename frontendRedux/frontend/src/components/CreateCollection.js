@@ -21,7 +21,7 @@ function CreateCollection(props) {
     console.log("useeffect ran once, this is props", props);
     axios
       .post(
-        "http://localhost:4000/users/create-collection",
+        "https://cnnrmcnl-youtube.herokuapp.com/users/create-collection",
         {
           creator: props.userInfo.userID,
           title: props.newCollectionInfo.collectionTitle,
@@ -37,7 +37,7 @@ function CreateCollection(props) {
       });
   }, [count]);
   return (
-    <div>
+    <div className="login">
       <form id="collectionName">
         <label for="collectionName">Collection Name</label>
         <input
@@ -57,6 +57,7 @@ function CreateCollection(props) {
         ></input>
       </form>
       <button
+        className="buttonCollection"
         onClick={() => {
           setCount(count + 1);
         }}

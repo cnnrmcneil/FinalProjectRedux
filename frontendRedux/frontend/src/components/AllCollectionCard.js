@@ -16,7 +16,7 @@ function AllCollectionCard(props) {
   //   console.log("Useeffect before USERID check is running");
   //   if (props.userInfo.userID) {
   //     axios
-  //       .post("http://localhost:4000/users/find-collection", {
+  //       .post("https://cnnrmcnl-youtube.herokuapp.com/users/find-collection", {
   //         // userID: props.userInfo.userID,
   //         userID: "61b953caaa7d81214049ee1b",
   //       })
@@ -38,9 +38,9 @@ function AllCollectionCard(props) {
   function refresh() {
     if (props.userInfo.userID) {
       axios
-        .post("http://localhost:4000/users/find-collection", {
-          // userID: props.userInfo.userID,
-          userID: "61b953caaa7d81214049ee1b",
+        .post("https://cnnrmcnl-youtube.herokuapp.com/users/find-collection", {
+          userID: props.userInfo.userID,
+          // userID: "61b953caaa7d81214049ee1b",
         })
         .then((results) => {
           props.updateCollections(results.data);
@@ -71,6 +71,7 @@ function AllCollectionCard(props) {
             <div>
               <h3 key={index}>{collection.title}</h3>
               <button
+                className="buttonCollection"
                 onClick={() => {
                   props.updateActiveCollection(collection);
                 }}
@@ -88,6 +89,7 @@ function AllCollectionCard(props) {
       )}
       <p></p>
       <button
+        className="buttonCollection"
         onClick={() => {
           refresh();
           setCount(count + 1);

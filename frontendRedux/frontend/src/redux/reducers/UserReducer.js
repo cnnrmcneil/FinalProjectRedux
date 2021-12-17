@@ -3,6 +3,7 @@ const initialState = {
   password: "",
   userID: "",
   collections: "",
+  otherUserID: "",
 };
 
 export const UserReducer = (state = initialState, action) => {
@@ -26,6 +27,11 @@ export const UserReducer = (state = initialState, action) => {
       return {
         ...state,
         collections: action.payload,
+      };
+    case "UPDATE_OTHERUSERID":
+      return {
+        ...state,
+        otherUserID: action.payload,
       };
     default:
       return state;

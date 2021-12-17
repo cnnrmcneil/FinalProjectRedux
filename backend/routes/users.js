@@ -10,10 +10,21 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
 const jwt = require("jsonwebtoken");
+const { useColors } = require("debug/src/browser");
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
   res.send("respond with a resource, you are on users");
+});
+
+router.get("/all-users", function (req, res) {
+  User.find()
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((err) => {
+      console.log("ERROR: ", err);
+    });
 });
 
 router.post("/sign-up", function (req, res, next) {
@@ -100,7 +111,59 @@ router.post("/login", (req, res) => {
       res.json(foundUser);
     });
 });
+router.post("/delete-link", auth, function (req, res, next) {
+  const { link, collectionID } = req.body;
+  if (!collectionID || !link) {
+    res.json({
+      error: "Must be linked to a collection and link",
+    });
+  }
+  Collection.findByIdAndUpdate(collectionID, {
+    $pull: { links: link },
+  })
+    .then((results) => {
+      console.log("This is delete-link results", results);
+      res.json(results);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+router.post("/delete", auth, function (req, res, next) {
+  const { collectionID } = req.body;
+  if (!collectionID) {
+    res.json({
+      error: "Must be linked to a collection",
+    });
+  }
+  Collection.findByIdAndDelete(collectionID)
+    .then((results) => {
+      console.log("This is delete results", results);
+      res.json(results);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
 
+router.post("/add-link", auth, function (req, res, next) {
+  const { link, collectionID } = req.body;
+  if (!link || !collectionID) {
+    res.json({
+      error: "Must add links and/or be linked to a collection",
+    });
+  }
+  Collection.findByIdAndUpdate(collectionID, {
+    $push: { links: link },
+  })
+    .then((results) => {
+      console.log("This is addlink results", results);
+      res.json(results);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
 router.post("/create-collection", auth, function (req, res, next) {
   console.log("BODY", req.body);
   const { creator, links, title } = req.body;
